@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "沙發",
+        "price": 2000,
+        "picture": "http://www.comfort168.com.tw/ezcatfiles/m118/img/pictures/a/a001_S_4.3.4%25202%5B1%5D.jpg"
+    },
+    {
+        "id": 2,
+        "name": "書桌",
+        "price": 1000,
+        "picture": "https://tgi1.jia.com/113/299/13299522.jpg"
+    },
+    {
+        "id": 3,
+        "name": "床",
+        "price": 2500,
+        "picture": "https://img.imynest.com/uploads/2/4A/24AB5A1945.jpeg"
+    },
+    {
+        "id": 4,
+        "name": "蛋椅",
+        "price": 500,
+        "picture": "http://pic.pimg.tw/vicdeco/1382994209-2504118941.jpg"
+    },
+    {
+        "id": 5,
+        "name": "梳妝台",
+        "price": 700,
+        "picture": "http://ymt88.com/wp-content/uploads/2016/07/33-500x325.jpg"
+    },
+    {
+        "id": 6,
+        "name": "辦公椅",
+        "price": 1500,
+        "picture": "http://www.ycm88.net/Upload/wangbubangongyi/H174/01.jpg"
+    },
+    {
+        "id": 7,
+        "name": "躺椅",
+        "price": 900,
+        "picture": "https://img.imynest.com/uploads/E/7E/E7E62D0D76.jpeg"
+    },
+    {
+        "id": 8,
+        "name": "收納櫃",
+        "price": 1200,
+        "picture": "https://cdn01.pinkoi.com/product/VVSCePxZ/0/500x0.jpg"
+    },
+    {
+        "id": 9,
+        "name": "大型書櫃",
+        "price": 3000,
+        "picture": "http://seowhy99.com/opladmin/images/%E7%83%A4%E6%BC%86%E4%B9%A6%E6%9F%9C%E7%B3%BB%E5%88%97/L-005.jpg"
+    },
+    {
+        "id": 10,
+        "name": "衣櫃",
+        "price": 2500,
+        "picture": "http://www.zzgbz.com/image/kw/6292554/1903359f46f7701d52d43d4441cc33cd.jpg"
+    }
+]
