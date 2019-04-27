@@ -21,10 +21,10 @@ class Product extends Component {
     AddCart() {
         const product = this.props.location.state.product;
         const Cart = [];
-        Cart.push({ id: 1, name: product.name, price: product.price, img: product.picture })
+        Cart.push({ id: 1, name: product.name, price: product.price, img: product.picture, amount: 1, product: product.id })
         this.SetJsonCart("cartList", Cart)
         alert("此商品已加入購物車")
-        
+
     }
     getAddCart() {
         const product = this.props.location.state.product;
@@ -34,10 +34,10 @@ class Product extends Component {
         const mapCartName = Cart.map((i) => i.name)
         if (mapCartName.indexOf(product.name) !== -1) {
             alert("購物車已有此商品!!")
-            
+
         } else {
             let leng = mapCartId.length - 1
-            Cart.push({ id: mapCartId[leng] + 1, name: product.name, price: product.price, img: product.picture })
+            Cart.push({ id: mapCartId[leng] + 1, name: product.name, price: product.price, img: product.picture, amount: 1, product: product.id })
             this.SetJsonCart("cartList", Cart)
             alert("此商品已加入購物車")
         }
@@ -95,8 +95,8 @@ class Product extends Component {
                         </div>
                     </div>
                 </div>
-                
-                
+
+
             </div >
         );
     }

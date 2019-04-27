@@ -15,18 +15,31 @@ class Cart extends Component {
   }
 
   handleChange(event) {
-    // let selectId = event.target.closest("div").id;
-    // console.log(selectId)
-    // let selectValue = event.target.closest("select").value;
-    // console.log(selectValue)
-    // let id = event.target.closest("div").id
-    this.setState({ value: event.target.closest("select").value });
+    const arrSelect = [];
+    const getCart = this.getJsonCart("cartList")
+    console.log(getCart)
+    const selectId = event.target.closest("div").id;
+    const findProduct = getCart.find(e => e.id > selectId-1)
+    console.log(findProduct)
+    console.log("id",selectId)
+    // console.log("productid",selectPrductId)
+    const selectAmount = event.target.closest("select").value;
+    console.log("amount",selectAmount)
+    const mapgetCart = getCart.map(e=> arrSelect.push({ id: e.id, name: e.name, price: e.price, img: e.img, amount: selectAmount, product: e.product }))
+    // getCart.map(e=> arrSelect.push({ id: selectId, name: findProduct.name, price: findProduct.price, img: findProduct.img, amount: selectAmount, product: findProduct.product })
+    console.log(mapgetCart)
+    
+    // this.SetJsonCart("cartList", arrSelect);
+    console.log(arrSelect)
+    // this.setState({ value: event.target.closest("select").value });
   }
   handleSubmit(event) {
     alert('Your favorite flavor is: ' + this.state.value);
     event.preventDefault();
   }
-
+  SetJsonCart(key, param) {
+    return (window.localStorage.setItem(key, JSON.stringify(param)))
+  }
   getJsonCart(key) {
     return JSON.parse(window.localStorage.getItem(key));
   };
@@ -42,7 +55,7 @@ class Cart extends Component {
             <thead>
               <tr>
                 <th scope="row">
-                  <select onChange={this.handleChange} id={p.id}>
+                <select onChange={this.handleChange} id={p.product}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -52,7 +65,7 @@ class Cart extends Component {
 
                 </th>
                 <td><img className="card-img-top cart-picture" src={p.img} alt="" /></td>
-                <td>{p.name}</td>
+                <td><label>{p.name}</label></td>
                 <td>NT$ {p.price}</td>
               </tr>
             </thead>
@@ -76,7 +89,7 @@ class Cart extends Component {
           </div>
           <div className="col-lg-2">
             <div className="cart-total">總金額為:{reduce}</div>
-            <button className="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target=".bd-example-modal-sm" onClick={() => this.checkOut()} >結帳</button>
+            <button className="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target=".bd-example-modal-sm" onClick={() => this.checkOut(window.location.href = "/")} >結帳</button>
             <div className="modal fade bd-example-modal-sm" tabIndex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
               <div className="modal-dialog modal-sm">
                 <div className="modal-content">
@@ -98,6 +111,7 @@ class Cart extends Component {
   }
 
   render() {
+    // console.log(this.handleChange.selectId)
     if (!this.getJsonCart("cartList")) {
       alert("尚無商品")
       return (<Redirect to="/" />)
@@ -124,7 +138,6 @@ class Cart extends Component {
 
                   {this.getJsonCart("cartList").map(p => this.getCartList(p))}
                   {this.totalPrice()}
-
                 </div>
               </div>
             </div>

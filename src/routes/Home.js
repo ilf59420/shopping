@@ -60,14 +60,6 @@ class Home extends Component {
                   <img className="d-block img-fluid" src="http://img.archiexpo.cn/images_ae/photo-g/49563-11333126.jpg" alt="Third slide" />
                 </div>
               </div>
-              <Link className="carousel-control-prev" to="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="sr-only">Previous</span>
-              </Link>
-              <Link className="carousel-control-next" to="#carouselExampleIndicators" role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="sr-only">Next</span>
-              </Link>
             </div>
           </div>
 
