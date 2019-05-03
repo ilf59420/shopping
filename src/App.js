@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './routes/Home';
 import About from './routes/About';
 import Life from './routes/Life';
-import Product from'./routes/Product';
+import Product from './routes/Product';
 import Cart from './routes/Cart';
 import Search from './routes/Search';
 //components
@@ -23,36 +23,40 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      products:[], 
+      products: [],
       // air :[]
     }
     this.getProducts();
   }
+
   async getProducts() {
     const products = await ServiceProduct.get();
     this.setState({ products });
     // console.log(products)
   }
+
   // async getAir() {
   //   const Air = await ServiceAir.get();
   //   this.setState({ Air });
   //   // console.log(products)
   // }
+
   getJsonCart(key) {
     return JSON.parse(window.localStorage.getItem(key));
   };
+
   renderRoute(props, Component) {
     return <Component {...props} products={this.state.products} />
   }
+
   render() {
     // document.title="購物網站"
     return (
       <Router>
-      
         <div className="App">
           <Header />
-          <Nav/> 
-          <Route path="/" exact render={(props) => this.renderRoute(props, Home)}  />
+          <Nav />
+          <Route path="/" exact render={(props) => this.renderRoute(props, Home)} />
           <Route path="/about/" render={(props) => this.renderRoute(props, About)} />
           <Route path="/life/" component={Life} />
           <Route path="/search/" component={Search} />

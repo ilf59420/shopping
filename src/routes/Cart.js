@@ -28,7 +28,13 @@ class Cart extends Component {
   }
 
   getJsonCart(key) {
-    return JSON.parse(window.localStorage.getItem(key));
+    // JSON.parse 很容易發生錯誤而導致系統崩潰，建議使用 try
+    try {
+      return JSON.parse(window.localStorage.getItem(key));
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
   };
   getCartList(p) {
     // let amount = this.state.value;
@@ -69,7 +75,9 @@ class Cart extends Component {
     } else {
       const getCart = this.getJsonCart("cartList")
       const mapPrice = getCart.map((p) => { return (p.price * amount) })
-      const reduce = mapPrice.reduce(this.getSum)
+      // const reduce = mapPrice.reduce(this.getSum)
+      // 這樣寫就不用額外寫 method
+      const reduce = mapPrice.reduce((acc, value) => acc + value);
       return (
         <div className="row">
           <div className="col-lg-10">
@@ -93,9 +101,9 @@ class Cart extends Component {
     return localStorage.removeItem("cartList")
   }
 
-  getSum(total, num) {
-    return total + num;
-  }
+  // getSum(total, num) {
+  //   return total + num;
+  // }
 
   render() {
     if (!this.getJsonCart("cartList")) {
